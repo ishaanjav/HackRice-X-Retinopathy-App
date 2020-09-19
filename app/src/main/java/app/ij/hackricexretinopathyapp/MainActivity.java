@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     int REQUEST_CAMERA = 1034, REQUEST_GALLERY = 1000, REQUEST_GALLERY_FROM_CAMERA = 234;
 
     Button next;
+    TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void buttons() {
-        next = findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     imageurl = getRealPathFromURI(imageUri);
                     makeToast("Got the image");
                     next.setVisibility(View.VISIBLE);
+                    text.setVisibility(View.INVISIBLE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -129,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                     img = handleSamplingAndRotationBitmap(getApplicationContext(), imageUri);
                     img = centerCrop(img);
                     next.setVisibility(View.VISIBLE);
+                    text.setVisibility(View.INVISIBLE);
                     imageView.setImageBitmap(img);
                     makeToast("Got the image");
                 } catch (IOException e) {
@@ -185,6 +188,8 @@ public class MainActivity extends AppCompatActivity {
         camera = findViewById(R.id.camera);
         gallery = findViewById(R.id.gallery);
         imageView = findViewById(R.id.imageView);
+        text = findViewById(R.id.text);
+        next = findViewById(R.id.next);
     }
 
     public Bitmap centerCrop(Bitmap srcBmp) {

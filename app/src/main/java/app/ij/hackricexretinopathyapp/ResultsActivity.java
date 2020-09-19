@@ -47,8 +47,13 @@ public class ResultsActivity extends AppCompatActivity {
                 shareWithEveryone();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
     public void shareWithEveryone() {
         Log.i("Share Results", "");
         String[] TO = {""};
