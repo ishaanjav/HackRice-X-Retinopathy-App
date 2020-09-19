@@ -1,5 +1,6 @@
 package app.ij.hackricexretinopathyapp;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -23,6 +24,7 @@ import android.widget.Toast;
 public class ResultsActivity extends AppCompatActivity {
 
     TextView title;
+    Button share;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +32,7 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
         Button startBtn = (Button) findViewById(R.id.sendEmail);
+        share = findViewById(R.id.share);
         title = findViewById(R.id.title);
         title.setPaintFlags(title.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
@@ -38,6 +41,35 @@ public class ResultsActivity extends AppCompatActivity {
                 sendEmail();
             }
         });
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shareWithEveryone();
+            }
+        });
+    }
+
+    public void shareWithEveryone() {
+        Log.i("Share Results", "");
+        String[] TO = {""};
+        String[] CC = {""};
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("application/image");
+
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Eye Scanner");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi,\nHere are the results from the Eye Scanner.");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Share..."));
+            finish();
+            Log.i("Shared!", "");
+        } catch (ActivityNotFoundException ex) {
+            Toast.makeText(ResultsActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void sendEmail() {
