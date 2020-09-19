@@ -42,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     int REQUEST_CAMERA = 1034, REQUEST_GALLERY = 1000, REQUEST_GALLERY_FROM_CAMERA = 234;
 
+    Button next;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void buttons() {
+        next = findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                startActivity(intent);
+            }
+        });
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -108,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageBitmap(img);
                     imageurl = getRealPathFromURI(imageUri);
                     makeToast("Got the image");
+                    next.setVisibility(View.VISIBLE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -117,7 +128,9 @@ public class MainActivity extends AppCompatActivity {
                     img = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
                     img = handleSamplingAndRotationBitmap(getApplicationContext(), imageUri);
                     img = centerCrop(img);
+                    next.setVisibility(View.VISIBLE);
                     imageView.setImageBitmap(img);
+                    makeToast("Got the image");
                 } catch (IOException e) {
                     e.printStackTrace();
                     makeToast("Error getting image");
