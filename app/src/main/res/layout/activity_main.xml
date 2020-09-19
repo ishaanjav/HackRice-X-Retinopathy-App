@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,10 +10,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10sp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20sp" />
 
     <Button
         android:id="@+id/next"
@@ -25,30 +23,26 @@
         android:paddingRight="30sp"
         android:text="Get Results"
         android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
         android:textColor="#fff"
         android:textSize="22sp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+        android:layout_below="@id/imageView"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="5dp"
-        android:background="#FF993E"
-        app:layout_constraintBottom_toTopOf="@+id/ll"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_above="@id/ll"
+        android:background="#FF993E"/>
 
     <LinearLayout
         android:id="@+id/ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="#FFE5B2"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
+        android:orientation="horizontal">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -60,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20sp"
-            android:layout_marginBottom="30sp"
+            android:layout_marginTop="22sp"
+            android:layout_marginBottom="33sp"
             android:layout_weight="4"
             android:background="@drawable/round_white"
             android:text="Take a Picture"
@@ -77,11 +71,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20sp"
-            android:layout_marginBottom="30sp"
+            android:layout_marginTop="22sp"
+            android:layout_marginBottom="33sp"
             android:layout_weight="4"
-            android:background="@drawable/round_white"
             android:text="Choose a Picture"
+            android:background="@drawable/round_white"
             android:theme="@style/buttonStyle" />
 
         <RelativeLayout
@@ -92,4 +86,4 @@
     </LinearLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

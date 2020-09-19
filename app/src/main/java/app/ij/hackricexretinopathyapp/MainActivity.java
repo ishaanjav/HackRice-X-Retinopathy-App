@@ -27,6 +27,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -152,9 +153,9 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, PICTURE_RESULT);
         } catch (Exception e) {
             Log.wtf("*Error launching Camera", e.toString());
-            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, REQUEST_GALLERY_FROM_CAMERA);
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_GALLERY_FROM_CAMERA);
             } else {
                 pickImageFromGallery();
             }
@@ -175,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                 pickImageFromGallery();
             }
         } else if (requestCode == REQUEST_GALLERY_FROM_CAMERA) {
-            if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+            if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     == PackageManager.PERMISSION_GRANTED) {
                 launchCamera();
             }
@@ -226,9 +227,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage) throws IOException {
-        int MAX_HEIGHT = 2048;
-        int MAX_WIDTH = 2048;
+    public Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage) throws IOException {
+        int MAX_HEIGHT = 1024;
+        int MAX_WIDTH = 1024;
 
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
