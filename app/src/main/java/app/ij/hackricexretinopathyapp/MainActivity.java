@@ -30,6 +30,8 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.io.InputStream;
 
+import javax.xml.transform.Result;
+
 public class MainActivity extends AppCompatActivity {
 
     Button camera, gallery;
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     String imageurl;
     ImageView imageView;
     int REQUEST_CAMERA = 1034, REQUEST_GALLERY = 1000, REQUEST_GALLERY_FROM_CAMERA = 234;
+    Button nextPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void buttons() {
+        nextPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // DONE Go to next page
+                Intent resultsPage = new Intent(MainActivity.this, ResultsActivity.class);
+                // TODO may have to do stuff with the image to send to next page.
+                startActivity(resultsPage);
+            }
+        });
         camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         == PackageManager.PERMISSION_DENIED) {
                     //permission not granted request it.
                     String[] permissions = {Manifest.permission.READ_EXTERNAL_STORAGE};
-                    //show popupƒ
+                    //show popup
                     requestPermissions(permissions, REQUEST_GALLERY);
                 } else {
                     /* permission already granted */
@@ -108,6 +120,7 @@ public class MainActivity extends AppCompatActivity {
                     imageView.setImageBitmap(img);
                     imageurl = getRealPathFromURI(imageUri);
                     makeToast("Got the image");
+                    nextPage.setVisibility(View.VISIBLE);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -118,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
                     img = handleSamplingAndRotationBitmap(getApplicationContext(), imageUri);
                     img = centerCrop(img);
                     imageView.setImageBitmap(img);
+                    nextPage.setVisibility(View.VISIBLE);
+                    makeToast("Got the image");
                 } catch (IOException e) {
                     e.printStackTrace();
                     makeToast("Error getting image");
@@ -172,6 +187,7 @@ public class MainActivity extends AppCompatActivity {
         camera = findViewById(R.id.camera);
         gallery = findViewById(R.id.gallery);
         imageView = findViewById(R.id.imageView);
+        nextPage = findViewById(R.id.next);
     }
 
     public Bitmap centerCrop(Bitmap srcBmp) {
@@ -211,8 +227,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static Bitmap handleSamplingAndRotationBitmap(Context context, Uri selectedImage) throws IOException {
-        int MAX_HEIGHT = 1024;
-        int MAX_WIDTH = 1024;
+        int MAX_HEIGHT = 2048;
+        int MAX_WIDTH = 2048;
 
         final BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
