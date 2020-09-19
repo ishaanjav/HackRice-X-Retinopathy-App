@@ -1,3 +1,4 @@
 include ':app'
 rootProject.name = "HackRice X Retinopathy App"
 include ':java'
+include ':java'
