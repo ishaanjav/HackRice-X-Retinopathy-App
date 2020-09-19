@@ -46,7 +46,7 @@ public class ResultsActivity extends AppCompatActivity {
         String[] CC = {""};
 
         Intent emailIntent = new Intent(Intent.ACTION_VIEW);
-        Uri data = Uri.parse("mailto:?subject=" + "Eye Scan" + "&body=" + "Hey, my results on Retino" +
+        Uri data = Uri.parse("mailto:?subject=" + "Eye Scan" + "&body=" + "Hello, my eye test results on Retino" +
                 "Scanner are shown below. Please check it out!" + "&to=" + "");
         emailIntent.setData(data);
         startActivity(Intent.createChooser(emailIntent, "Send mail..."));

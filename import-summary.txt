@@ -7,7 +7,9 @@ The following files were *not* copied into the new Gradle project; you
 should evaluate whether these are still needed in your project and if
 so manually move them:
 
+* .DS_Store
 * javadoc/
+* javadoc/.DS_Store
 * javadoc/allclasses-frame.html
 * javadoc/allclasses-noframe.html
 * javadoc/constant-values.html
@@ -16,7 +18,9 @@ so manually move them:
 * javadoc/index.html
 * javadoc/mymath.js
 * javadoc/org/
+* javadoc/org/.DS_Store
 * javadoc/org/opencv/
+* javadoc/org/opencv/.DS_Store
 * javadoc/org/opencv/android/
 * javadoc/org/opencv/android/BaseLoaderCallback.html
 * javadoc/org/opencv/android/Camera2Renderer.html
