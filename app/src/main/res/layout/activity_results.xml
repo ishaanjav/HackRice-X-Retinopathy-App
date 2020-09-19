@@ -7,79 +7,96 @@
     android:padding="@dimen/box_inset_layout_padding"
     tools:context=".ResultsActivity">
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="Eye Scan Results"
+        android:textColor="#000"
+        android:textSize="36sp" />
+
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="419dp"
-        android:layout_height="265dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="20dp"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_baseline_image_24" />
 
-    <Button
-        android:id="@+id/gallery"
-        android:layout_width="185dp"
-        android:layout_height="73dp"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="245dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/round_white"
-        android:text="Share"
-        android:theme="@style/buttonStyle" />
-
-    <ImageView
-        android:id="@+id/rectimage"
-        android:layout_width="428dp"
-        android:layout_height="193dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="185dp"
-        android:src="@drawable/rectangle"></ImageView>
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="89dp"
-        android:layout_marginTop="3dp"
-        android:text="Eye Scan Results"
-        android:textSize="36sp" />
+        android:layout_below="@id/image_view"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginRight="10sp"
+        android:background="@drawable/box">
 
-    <Button
-        android:id="@+id/sendEmail"
-        android:layout_width="185dp"
-        android:layout_height="73dp"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="5dp"
-        android:text="Share With Doctor"
-        android:background="@drawable/round_white"
-        android:theme="@style/buttonStyle"/>
+        <TextView
+            android:id="@+id/results"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="21sp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="425dp"
-        android:layout_height="186dp"
-        android:layout_alignParentStart="true"
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="9dp"
-        android:layout_marginBottom="191dp"
-        android:text='Diabeties: Y/N \nModel Accuracy \nLearn More: Click Here (Hyperlinked)"'
-        android:textSize="36sp" />
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <Button
+            android:id="@+id/share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22sp"
+            android:layout_marginBottom="33sp"
+            android:layout_weight="4"
+            android:background="@drawable/orange_btnl"
+            android:paddingLeft="30sp"
+            android:paddingRight="30sp"
+            android:text="Share"
+            android:textColor="#fff"
+            android:theme="@style/buttonStyle" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+        <Button
+            android:id="@+id/sendEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="22sp"
+            android:layout_marginBottom="33sp"
+            android:layout_weight="4"
+            android:background="@drawable/orange_btnl"
+            android:paddingLeft="30sp"
+            android:paddingRight="30sp"
+            android:text="Send to Doctor"
+            android:textColor="#fff"
+            android:theme="@style/buttonStyle" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+
+    </LinearLayout>
 
 </RelativeLayout>
