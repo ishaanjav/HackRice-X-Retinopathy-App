@@ -31,7 +31,9 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // -----------------
-    
+    // CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     // add the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     // add SDKs for any other desired Firebase products
