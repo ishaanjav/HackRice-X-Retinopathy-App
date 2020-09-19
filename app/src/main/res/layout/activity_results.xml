@@ -1,12 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.wear.widget.BoxInsetLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/box_inset_layout_padding"
-    tools:context=".ResultsActivity"
-    tools:deviceIds="wear">
+    tools:context=".ResultsActivity">
 
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="419dp"
+        android:layout_height="265dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="57dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_image_24" />
 
-</androidx.wear.widget.BoxInsetLayout>
+    <Button
+        android:id="@+id/gallery"
+        android:layout_width="185dp"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="245dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/round_white"
+        android:text="Share"
+        android:theme="@style/buttonStyle" />
+
+    <ImageView
+        android:id="@+id/rectimage"
+        android:layout_width="428dp"
+        android:layout_height="193dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="185dp"
+        android:src="@drawable/rectangle"></ImageView>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="3dp"
+        android:text="Eye Scan Results"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/sendEmail"
+        android:layout_width="185dp"
+        android:layout_height="73dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        android:text="Share With Doctor"
+        android:background="@drawable/round_white"
+        android:theme="@style/buttonStyle"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="425dp"
+        android:layout_height="186dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="191dp"
+        android:text='Diabeties: Y/N \nModel Accuracy \nLearn More: Click Here (Hyperlinked)"'
+        android:textSize="36sp" />
+
+</RelativeLayout>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Retino Scanner</string>
+    <string name="compose_email">Compose Email</string>
 </resources>
