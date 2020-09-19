@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "154736476084",
+    "firebase_url": "https://hackricex-app.firebaseio.com",
+    "project_id": "hackricex-app",
+    "storage_bucket": "hackricex-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154736476084:android:3779cf024bac849e397ce1",
+        "android_client_info": {
+          "package_name": "app.ij.hackricexretinopathyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "154736476084-2fmc35ork65n4u9ijmnaill1fdeabf3a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCU8yPLdA9STxE-1ReF5y_odjCmg72_ck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "154736476084-2fmc35ork65n4u9ijmnaill1fdeabf3a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
