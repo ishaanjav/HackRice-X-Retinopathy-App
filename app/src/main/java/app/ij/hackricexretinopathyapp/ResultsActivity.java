@@ -48,12 +48,13 @@ public class ResultsActivity extends AppCompatActivity {
     TextView result;
     Interpreter tflite;
     boolean retino = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-// Get the Uri from previous Activity
+        // Get the Uri from previous Activity
         Intent receiveIntent = getIntent();
         imageView = findViewById(R.id.image_view);
         imageUri = receiveIntent.getParcelableExtra("image");
