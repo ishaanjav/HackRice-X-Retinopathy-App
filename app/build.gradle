@@ -20,6 +20,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    aaptOptions{
+        noCompress "tflite"
+    }
 }
 
 dependencies {
@@ -33,6 +36,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // -----------------
+    // TF
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.3'
     // CardView
     implementation 'androidx.cardview:cardview:1.0.0'
 

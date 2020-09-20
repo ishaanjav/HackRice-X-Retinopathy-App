@@ -1,3 +1,6 @@
+include ':sdk'
 include ':app'
 include ':java'
 rootProject.name = "HackRice X Retinopathy App"
+include ':java'
+include ':java'

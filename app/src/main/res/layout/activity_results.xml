@@ -19,14 +19,14 @@
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300sp"
+        android:layout_height="300sp"
         android:layout_below="@id/title"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:scaleType="centerCrop"
         android:layout_marginLeft="30sp"
-        android:layout_marginRight="30sp"/>
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30sp"
+        android:scaleType="centerCrop" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,6 +41,11 @@
             android:id="@+id/results"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15sp"
+            android:layout_marginTop="10sp"
+            android:layout_marginBottom="10sp"
+            android:textStyle="bold"
+            android:textColor="#000"
             android:textSize="21sp" />
 
     </RelativeLayout>
