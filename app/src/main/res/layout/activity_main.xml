@@ -99,5 +99,14 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/notifClock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="112dp"
+        android:text="Button" />
 
 </RelativeLayout>
