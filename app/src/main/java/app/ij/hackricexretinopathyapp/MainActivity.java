@@ -7,6 +7,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +33,8 @@ import android.widget.Toast;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         bindViews();
 
         buttons();
+        myAlarm();
 
     }
 
@@ -94,6 +99,13 @@ public class MainActivity extends AppCompatActivity {
                     /* permission already granted */
                     pickImageFromGallery();
                 }
+            }
+        });
+
+        findViewById(R.id.notifClock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myAlarm();
             }
         });
     }
@@ -297,4 +309,20 @@ public class MainActivity extends AppCompatActivity {
         t = Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG);
         t.show();
     }
+
+    //NEW CODE
+    public void myAlarm() {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY,23);
+        calendar.set(Calendar.MINUTE,10);
+        calendar.set(Calendar.SECOND,30);
+        Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
+        intent.setAction("MY_NOTIFICATION_MESSAGE");
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_FIFTEEN_MINUTES, pendingIntent);
+
+    }
+    //END NEW CODE
 }
