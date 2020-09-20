@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ResultsActivity.class);
+                Log.wtf("*Passing URI", "Is null: " + (imageUri == null));
+                intent.putExtra("image", imageUri);
                 startActivity(intent);
             }
         });
@@ -142,6 +145,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
 
     void launchCamera() {
         try {
@@ -192,9 +201,11 @@ public class MainActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
     }
 
-    public Bitmap centerCrop(Bitmap srcBmp) {
-        if (srcBmp.getWidth() >= srcBmp.getHeight())
+    public static Bitmap centerCrop(Bitmap srcBmp) {
+        if (srcBmp.getWidth() >= srcBmp.getHeight()) {
+            Log.wtf("*Cropping", "Image width > height");
             return Bitmap.createBitmap(srcBmp, srcBmp.getWidth() / 2 - srcBmp.getHeight() / 2, 0, srcBmp.getHeight(), srcBmp.getHeight());
+        }
         return Bitmap.createBitmap(srcBmp, 0, srcBmp.getHeight() / 2 - srcBmp.getWidth() / 2, srcBmp.getWidth(), srcBmp.getWidth());
     }
 
